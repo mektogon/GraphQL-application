@@ -1,0 +1,17 @@
+#DATE CREATED: 2024-03-05T22:58:55.6524269+07:00[Asia/Barnaul]
+#CREATE BY: Maxim Dorofeev
+#SCHEMA NAME: create_user_schema
+
+interface Base {
+    createDate: DateTime!
+    updateDate: DateTime!
+}
+
+type User implements Base {
+    id: ID!
+    externalUserId: ID!
+    status: UserStatusType!
+    settings: UserSettings
+    createDate: DateTime!
+    updateDate: DateTime!
+}

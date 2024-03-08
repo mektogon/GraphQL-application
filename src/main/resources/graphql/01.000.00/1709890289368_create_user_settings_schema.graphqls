@@ -1,0 +1,11 @@
+#DATE CREATED: 2024-03-08T16:31:29.368981+07:00[Asia/Barnaul]
+#CREATE BY: Maxim Dorofeev
+#SCHEMA NAME: create_user_settings_schema
+
+type UserSettings implements Base {
+    id: ID!
+    user: User!
+    viewMode: ViewModeType!
+    createDate: DateTime!
+    updateDate: DateTime!
+}

@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: graphql-app
+
+graphql:
+  servlet:
+    max-query-depth: 10
+    exception-handlers-enabled: true
+  playground:
+    enabled: true

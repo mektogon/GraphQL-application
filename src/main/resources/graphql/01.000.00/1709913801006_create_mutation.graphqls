@@ -1,0 +1,27 @@
+#DATE CREATED: 2024-03-08T23:03:21.006479+07:00[Asia/Barnaul]
+#CREATE BY: Maxim Dorofeev
+#SCHEMA NAME: create_mutation
+
+#User
+type UserMutation {
+    createUser(request: UserMutationRequest!): User
+    updateUser(request: UserMutationRequest!): User
+    deleteUser(userId: ID!): User
+    deleteAllUsersByStatus(status: UserStatusType!, limit: Int!): Int
+}
+
+input UserMutationRequest {
+    userId: ID!,
+    status: UserStatusType!
+}
+
+#UserSettings
+type UserSettingsMutation {
+    createUserSettings(request: UserSettingsMutationRequest!): UserSettings
+    updateUserSettings(request: UserSettingsMutationRequest!): UserSettings
+}
+
+input UserSettingsMutationRequest {
+    userId: ID!,
+    viewMode: ViewModeType!
+}

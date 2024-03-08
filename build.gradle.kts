@@ -21,23 +21,16 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-graphql")
+    implementation("com.tailrocks.graphql:graphql-datetime-kickstart-spring-boot-starter:6.0.0")
+    implementation("com.graphql-java-kickstart:voyager-spring-boot-starter:11.1.0")
+    implementation("com.graphql-java-kickstart:graphql-spring-boot-starter:15.1.0")
+    implementation("org.springframework.boot:spring-boot-starter-actuator:3.2.3")
+    implementation("org.springframework.boot:spring-boot-starter-web:3.2.3")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.0")
 
     compileOnly("org.projectlombok:lombok")
 
-    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
-    runtimeOnly("org.postgresql:postgresql")
-
     annotationProcessor("org.projectlombok:lombok")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.graphql:spring-graphql-test")
-    testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("org.springframework:spring-webflux")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:postgresql")
 }
 
 tasks.withType<Test> {

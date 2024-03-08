@@ -1,0 +1,58 @@
+= Руководство разработчика
+
+== Информация о проекте
+Тестовой проект с использованием Spring GraphQL.
+
+== GraphQL-схема
+Для генерации GraphQL-схемы необходимо использовать команду:
+[source, text]
+----
+gradlew createschema -Pschemaname=create_user_table -Pschemaversion=01.000.00
+----
+
+Описание аргументов: +
+- *schemaname* - Логическое наименование схемы (Например: create_user_schema) +
+- *schemaversion* - Указание расположения схемы (*Опциональный параметр*) +
+
+=== Соглашения именований в схеме GraphQL.
+- Имена типов: UpperCamelCase
+- Поля и аргументы: camelCase
+- ENUM: CAPITALIZED_WITH_UNDERSCORES
+
+=== Как визуализировать созданные GraphQL-схемы?
+Для просмотра схем необходимо:
+1. Включить voyager в application.yaml
+[source, yaml]
+----
+graphql:
+  voyager:
+    enabled: true
+----
+2. Запустить локально приложение и перейти по ссылке:
+[source, text]
+----
+http://url:port/voyager
+----
+
+=== Тестирование Query
+1. Включить playground в application.yaml
+[source, yaml]
+----
+graphql:
+  playground:
+    enabled: true
+----
+2. Запустить локально приложение и перейти по ссылке:
+[source, text]
+----
+http://url:port/playground
+----
+
+== Блокировка зависимостей
+В приложение используется блокировка зависимостей для исключения непредвиденных проблем, связанных с зависимостями (см. подробнее https://docs.gradle.org/current/userguide/dependency_locking.html[docs.gradle] ) +
+Блокировка зависимостей осуществляется с помощью gradle task:
+[source, text]
+----
+gradlew dependencies --write-locks
+----
+После добавления или изменения зависимостей необходимо вызвать данную таску.

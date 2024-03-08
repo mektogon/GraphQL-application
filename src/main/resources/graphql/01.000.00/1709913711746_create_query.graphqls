@@ -1,0 +1,12 @@
+#DATE CREATED: 2024-03-08T23:01:51.7483806+07:00[Asia/Barnaul]
+#CREATE BY: Maxim Dorofeev
+#SCHEMA NAME: create_query
+
+type Query {
+    #User
+    getUser(userId: ID!): User
+    getUsersByStatus(status: String!, limit: Int): [User]
+
+    #UserSettings
+    getUserSettings(userId: ID!): UserSettings
+}

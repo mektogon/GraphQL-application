@@ -1,0 +1,19 @@
+#DATE CREATED: 2024-03-08T16:31:32.0818875+07:00[Asia/Barnaul]
+#CREATE BY: Maxim Dorofeev
+#SCHEMA NAME: create_enums
+
+enum UserStatusType {
+    CREATED,
+    DELETED,
+    ACTIVE,
+    NOT_ACTIVE,
+    BANNED,
+    GUEST
+}
+
+enum ViewModeType {
+    TABLE,
+    LIST
+}
+
+scalar DateTime
