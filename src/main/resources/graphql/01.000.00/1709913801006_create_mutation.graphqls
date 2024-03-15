@@ -2,23 +2,21 @@
 #CREATE BY: Maxim Dorofeev
 #SCHEMA NAME: create_mutation
 
-#User
-type UserMutation {
+type Mutation {
+    #User
     createUser(request: UserMutationRequest!): User
     updateUser(request: UserMutationRequest!): User
     deleteUser(userId: ID!): User
     deleteAllUsersByStatus(status: UserStatusType!, limit: Int!): Int
+
+    #UserSettings
+    createUserSettings(request: UserSettingsMutationRequest!): UserSettings
+    updateUserSettings(request: UserSettingsMutationRequest!): UserSettings
 }
 
 input UserMutationRequest {
     userId: ID!,
     status: UserStatusType!
-}
-
-#UserSettings
-type UserSettingsMutation {
-    createUserSettings(request: UserSettingsMutationRequest!): UserSettings
-    updateUserSettings(request: UserSettingsMutationRequest!): UserSettings
 }
 
 input UserSettingsMutationRequest {

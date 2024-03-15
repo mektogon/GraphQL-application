@@ -1,0 +1,43 @@
+#DATE CREATED: 2024-03-10T18:51:14.9051673+07:00[Asia/Barnaul]
+#CREATE BY: Maxim Dorofeev
+#SCHEMA NAME: query
+
+#Получение пользователя по ID
+query GET_USER_BY_ID($userId: ID!) {
+    getUser(userId: $userId) {
+        id
+        externalUserId
+        status
+        settings {
+            id
+            viewMode
+        }
+    }
+}
+
+
+#Получение настроек пользователя по его ID
+query GET_USER_SETTINGS($userId: ID!) {
+    getUserSettings(userId: $userId) {
+        id
+        viewMode
+        user {
+            id
+            externalUserId
+            status
+        }
+    }
+}
+
+#Получение пользователей по статусу
+query GET_USERS_BY_STATUS($status: String!, $limit: Int!) {
+    getUsersByStatus(status: $status, limit: $limit) {
+        id
+        externalUserId
+        status
+        settings {
+            id
+            viewMode
+        }
+    }
+}

@@ -7,7 +7,16 @@ spring:
 
 graphql:
   servlet:
-    max-query-depth: 10
+    max-query-depth: 100
     exception-handlers-enabled: true
   playground:
+    enabled: true
+    tabs:
+      - name: Query Example
+        query: classpath:/playground/query/query.graphqls
+        variables: classpath:/playground/query/query_variables.json
+      - name: Mutation Example
+        query: classpath:/playground/mutation/mutation.graphqls
+        variables: classpath:/playground/mutation/mutation_variables.json
+  voyager:
     enabled: true

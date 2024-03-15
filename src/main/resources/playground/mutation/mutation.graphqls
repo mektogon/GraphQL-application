@@ -1,0 +1,37 @@
+#DATE CREATED: 2024-03-10T18:51:14.9051673+07:00[Asia/Barnaul]
+#CREATE BY: Maxim Dorofeev
+#SCHEMA NAME: mutation
+
+#Сохранение пользователя
+mutation CREATE_USER($userId: ID!, $status: UserStatusType!) {
+    createUser(request: {
+        userId: $userId
+        status: $status
+    }) {
+        id
+        externalUserId
+        status
+        updateDate
+    }
+}
+
+#Обновление пользователя
+mutation UPDATE_USER($userId: ID!, $status: UserStatusType!) {
+    updateUser(request: {
+        userId: $userId
+        status: $status
+    }) {
+        id
+        externalUserId
+        status
+        updateDate
+    }
+}
+
+#Удаление пользователя
+mutation DELETE_USER($userId: ID!) {
+    deleteUser(userId: $userId) {
+        id
+        status
+    }
+}
